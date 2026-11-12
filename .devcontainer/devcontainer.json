@@ -1,0 +1,52 @@
+{
+    "name": "Todo List - React 19 Sandbox",
+    "image": "mcr.microsoft.com/devcontainers/javascript-node:22-bookworm",
+    // Isolate node_modules inside Docker
+    "mounts": [
+        "source=todo-list-node-modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+    ],
+    "updateRemoteUserUID": true,
+    // Expose the default Vite development server port (5173)
+    "forwardPorts": [
+        5173
+    ],
+    "portsAttributes": {
+        "5173": {
+            "label": "Todo List App",
+            "onAutoForward": "openBrowser"
+        }
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/git:1": {}
+    },
+    // Configure VS Code extensions inside the sandbox automatically
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "editor.formatOnSave": true,
+                "[javascript]": {
+                    "editor.defaultFormatter": "esbenp.prettier-vscode"
+                },
+                "[javascriptreact]": {
+                    "editor.defaultFormatter": "esbenp.prettier-vscode"
+                },
+                "[typescript]": {
+                    "editor.defaultFormatter": "esbenp.prettier-vscode"
+                },
+                "[typescriptreact]": {
+                    "editor.defaultFormatter": "esbenp.prettier-vscode"
+                }
+            },
+            "extensions": [
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode",
+                "ms-azuretools.vscode-docker"
+            ]
+        }
+    },
+    // Automatically run npm install when the container finishes building
+    "postCreateCommand": "npm install",
+
+    // Run as a secure, non-root user
+    "remoteUser": "node"
+}

@@ -1,0 +1,31 @@
+.task-item {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  gap: 8px;
+}
+
+.task-item.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.priority {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+
+  background-color: var(--priority);
+  color: var(--priority-text);
+
+  font-size: 12px;
+  font-weight: bold;
+}
