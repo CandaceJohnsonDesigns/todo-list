@@ -1,11 +1,11 @@
 import "./TaskItem.css";
 import clsx from "clsx";
 
-const TaskItem = ({ key, title, priority, completed }) => {
+const TaskItem = ({ key, title, priorityRank, status }) => {
   return (
-    <li key={key} className={clsx('task-item', { completed })}>
-      {title}
-      <span className="priority">{priority}</span>
+    <li key={key} className={clsx('task-item', status )}>
+        <span className="priority">{priorityRank}</span>
+      <span className="task-title">{title}</span>
     </li>
   );
 };

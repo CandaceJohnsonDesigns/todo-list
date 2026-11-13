@@ -9,8 +9,8 @@ const TaskList = ({ tasks }) => {
           <TaskItem 
             key={task.id}
             title={task.title} 
-            priority={task.priority}
-            completed={task.completed} 
+            priorityRank={task.priorityRank}
+            status={task.status}
             />
         ))}
         <EditTaskForm />

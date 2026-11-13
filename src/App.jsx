@@ -9,20 +9,20 @@ function App() {
     {
       id: 1,
       title: 'Buy groceries',
-      priority: 1,
-      completed: false
+      priorityRank: 1,
+      status: 'todo'
     },
     {
       id: 2,
       title: 'Take a walk',
-      priority: 2,
-      completed: false
+      priorityRank: 2,
+      status: 'todo'
     },
     {
       id: 3,
       title: 'Read a book',
-      priority: 3,
-      completed: false
+      priorityRank: 3,
+      status: 'todo'
     }
   ]);
 

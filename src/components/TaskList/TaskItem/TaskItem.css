@@ -9,6 +9,11 @@
   gap: 8px;
 }
 
+.task-title {
+  text-align: left;
+  flex: 1;
+}
+
 .task-item.completed {
   text-decoration: line-through;
   opacity: 0.6;
