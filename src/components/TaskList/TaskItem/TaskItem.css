@@ -15,8 +15,11 @@
 }
 
 .task-item.completed {
-  text-decoration: line-through;
   opacity: 0.6;
+}
+
+.task-item.completed .task-title {
+  text-decoration: line-through;
 }
 
 .priority {
@@ -33,4 +36,22 @@
 
   font-size: 12px;
   font-weight: bold;
+}
+
+.task-item button {
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.delete-button {
+  background-color: var(--delete);
+  color: var(--delete-text);
+}
+
+.edit-button {
+  background-color: var(--edit);
+  color: var(--edit-text);
 }

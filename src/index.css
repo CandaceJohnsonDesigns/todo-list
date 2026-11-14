@@ -5,6 +5,11 @@
 
   --priority: #6f42c1;
   --priority-text: #fff;
+  
+  --delete: #dc3545;
+  --delete-text: #fff;
+  --edit: #007bff;
+  --edit-text: #fff;
 
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
