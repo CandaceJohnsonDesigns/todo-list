@@ -22,36 +22,34 @@
   text-decoration: line-through;
 }
 
-.priority {
-  display: inline-flex;
+.task-item span, .task-item button {
+  display: flex;
   align-items: center;
-  justify-content: center;
+}
 
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-
-  background-color: var(--priority);
-  color: var(--priority-text);
-
-  font-size: 12px;
-  font-weight: bold;
+.drag-handle {
+  cursor: grab;
 }
 
 .task-item button {
   border: none;
   cursor: pointer;
-  margin: 0;
-  padding: 8px;
-  border-radius: 50%;
+  background-color: transparent;
+  padding: 16px;
 }
 
 .delete-button {
-  background-color: var(--delete);
-  color: var(--delete-text);
+  color: var(--delete);
+}
+
+.delete-button:hover {
+  color: var(--delete-hover);
 }
 
 .edit-button {
-  background-color: var(--edit);
-  color: var(--edit-text);
+  color: var(--edit);
+}
+
+.edit-button:hover {
+  color: var(--edit-hover);
 }

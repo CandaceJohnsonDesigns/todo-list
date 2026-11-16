@@ -5,11 +5,20 @@
 
   --priority: #6f42c1;
   --priority-text: #fff;
+
+  --primary: #2563EB;
   
-  --delete: #dc3545;
+  --delete: #DC2626;
   --delete-text: #fff;
-  --edit: #007bff;
+  --delete-hover: color-mix(in oklab, var(--delete) 80%, black);
+
+  --edit: color-mix(in oklab, var(--primary) 80%, black);
   --edit-text: #fff;
+  --edit-hover: color-mix(in oklab, var(--edit) 80%, black);
+
+  --button-add-background-color: var(--primary);
+  --button-add-hover-background-color: #1D4ED8;
+  --button-add-text-color: #fff;
 
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
@@ -69,6 +78,7 @@ h1 {
     margin: 20px 0;
   }
 }
+
 h2 {
   font-size: 24px;
   line-height: 118%;
@@ -78,6 +88,7 @@ h2 {
     font-size: 20px;
   }
 }
+
 p {
   margin: 0;
 }

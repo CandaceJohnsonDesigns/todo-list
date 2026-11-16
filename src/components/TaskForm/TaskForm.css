@@ -1,0 +1,30 @@
+.task-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.task-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 40px;
+}
+
+input.task-title {
+  flex: 1;
+}
+
+
+.add-button {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--button-add-background-color);
+  color: var(--button-add-text-color);
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background-color: var(--button-add-hover-background-color);
+}

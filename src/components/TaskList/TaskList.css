@@ -1,0 +1,10 @@
+.task-group {
+    margin-top: 3rem;
+}
+.task-list {
+    padding: 0;
+}
+
+.task-group-title {
+   text-align: left;
+}

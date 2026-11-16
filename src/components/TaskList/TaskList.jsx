@@ -2,20 +2,26 @@ import "./TaskList.css";
 import TaskItem from "./TaskItem/TaskItem";
 import EditTaskForm from "./EditTaskForm/EditTaskForm";
 
-const TaskList = ({ tasks }) => {
+const TaskList = ({ groupId, title, tasks }) => {
   return (
-    <ul>
-      {tasks.map((task) => (
-        <TaskItem
-          key={task.id}
-          id={task.id}
-          title={task.title}
-          priority={task.priority}
-          status={task.status}
-        />
-      ))}
-      <EditTaskForm />
-    </ul>
+    <section id={groupId} className="task-group">
+      {title && <h2 className="task-group-title">{title}</h2>}
+      {tasks.length === 0 ? (
+        <p>No tasks available.</p>
+      ) : (
+        <ul className="task-list">
+          {tasks.map((task) => (
+            <TaskItem
+              key={task.id}
+              id={task.id}
+              title={task.title}
+              completedBy={task.completedBy}
+            />
+          ))}
+        </ul>
+      )}
+      {/* <EditTaskForm /> */}
+    </section>
   );
 };
 
