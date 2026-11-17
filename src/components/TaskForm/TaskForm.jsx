@@ -1,7 +1,7 @@
 import './TaskForm.css';
 import { Plus } from 'lucide-react';
 
-const TaskForm = () => {
+export function TaskForm () {
   return (
     <form className="task-form">
       <input className="task-title" type="text" placeholder="Add a task" />
@@ -10,5 +10,3 @@ const TaskForm = () => {
     </form>
   )
 }
-
-export default TaskForm

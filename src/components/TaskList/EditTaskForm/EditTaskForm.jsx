@@ -1,6 +1,6 @@
 import './EditTaskForm.css';
 
-const EditTaskForm = () => {
+export function EditTaskForm () {
   return (
     <form>
       <input type="text" placeholder="Edit task" />
@@ -8,5 +8,3 @@ const EditTaskForm = () => {
     </form>
   )
 }
-
-export default EditTaskForm

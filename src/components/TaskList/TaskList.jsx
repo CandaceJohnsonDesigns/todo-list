@@ -1,8 +1,8 @@
 import "./TaskList.css";
-import TaskItem from "./TaskItem/TaskItem";
-import EditTaskForm from "./EditTaskForm/EditTaskForm";
+import { TaskItem } from "./TaskItem/TaskItem";
+import { EditTaskForm } from "./EditTaskForm/EditTaskForm";
 
-const TaskList = ({ groupId, title, tasks }) => {
+export function TaskList ({ groupId, title, tasks }) {
   return (
     <section id={groupId} className="task-group">
       {title && <h2 className="task-group-title">{title}</h2>}
@@ -24,5 +24,3 @@ const TaskList = ({ groupId, title, tasks }) => {
     </section>
   );
 };
-
-export default TaskList;

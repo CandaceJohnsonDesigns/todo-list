@@ -2,7 +2,7 @@ import './TaskItem.css';
 import clsx from 'clsx';
 import { Trash, Pencil, GripVertical } from 'lucide-react';
 
-const TaskItem = ({ id, title, completed }) => {
+export function TaskItem ({ id, title, completed }) {
   return (
     <li id={id} className={clsx("task-item", completed && "completed")}>
       <span className="drag-handle"><GripVertical /></span>
@@ -13,5 +13,3 @@ const TaskItem = ({ id, title, completed }) => {
     </li>
   );
 };
-
-export default TaskItem;

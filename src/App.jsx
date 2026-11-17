@@ -4,9 +4,9 @@ import { sortByPosition } from "./utils/ordering";
 import { initialGroups } from "./mocks/data/groups";
 import { initialTasks } from "./mocks/data/tasks";
 import { initialPlacements } from "./mocks/data/placements";
-import TaskForm from "./components/TaskForm/TaskForm";
-import TaskControls from "./components/TaskControls/TaskControls";
-import TaskList from "./components/TaskList/TaskList";
+import { TaskForm } from "./components/TaskForm/TaskForm";
+import { TaskControls } from "./components/TaskControls/TaskControls";
+import { TaskList } from "./components/TaskList/TaskList";
 import { getGroupTaskItems } from "./selectors/groupTasks";
 import { DragDropProvider } from '@dnd-kit/react';
 

@@ -1,11 +1,11 @@
 import './TaskControls.css';
 import { ArrowDownWideNarrow } from 'lucide-react';
 
-const TaskControls = ({ 
+export function TaskControls ({ 
     showCompleted, 
     setShowCompleted, 
     sortTasks 
-}) => {
+}) {
   return (
     <div className="task-controls">
         <label className="show-completed">
@@ -20,5 +20,3 @@ const TaskControls = ({
     </div>
   )
 }
-
-export default TaskControls
