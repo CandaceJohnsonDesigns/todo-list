@@ -5,6 +5,7 @@ export function getGroupTaskItems(
   placements,
   groupId,
   parentPlacementId = null,
+  sortDirection = "asc",
 ) {
   // Index tasks by ID for fast lookup
   const taskMap = new Map(tasks.map((task) => [task.id, task]));
@@ -14,7 +15,7 @@ export function getGroupTaskItems(
     placements.filter(
       (p) => p.groupId === groupId && p.parentPlacementId === parentPlacementId,
     ),
-    "asc",
+    sortDirection,
   );
 
   // Merge Placement + Task

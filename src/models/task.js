@@ -10,6 +10,7 @@ import { formatDateTime } from "../utils/formatting";
  */
 export function createTaskModel(
   titleOrRaw,
+  parentTaskId = null,
   createdAt = new Date().toISOString(),
   completedAt = null,
   id = crypto.randomUUID()
@@ -20,12 +21,14 @@ export function createTaskModel(
       ? {
           id: titleOrRaw.id ?? id,
           title: titleOrRaw.title,
-          createdAt: titleOrRaw.createdAt || createdAt,
-          completedAt: titleOrRaw.completedAt || completedAt,
+          parentTaskId: titleOrRaw.parentTaskId ?? null,
+          createdAt: titleOrRaw.createdAt ?? new Date().toISOString(),
+          completedAt: titleOrRaw.completedAt ?? null,
         }
       : {
           id,
           title: titleOrRaw,
+          parentTaskId,
           createdAt,
           completedAt,
         };

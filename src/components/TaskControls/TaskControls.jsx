@@ -8,14 +8,14 @@ export function TaskControls ({
 }) {
   return (
     <div className="task-controls">
-        <label className="show-completed">
+        {/* <label className="show-completed">
           <input
             type="checkbox"
             checked={showCompleted}
             onChange={() => setShowCompleted(!showCompleted)}
           />
           Show Completed Tasks
-        </label>
+        </label> */}
       <button className="sort-button" onClick={sortTasks}><ArrowDownWideNarrow /></button>
     </div>
   )

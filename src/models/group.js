@@ -1,4 +1,5 @@
 import { formatDateTime } from "../utils/formatting";
+import { generateKeyBetween } from 'fractional-indexing';
 
 /**
  * Creates a group model instance.
@@ -10,7 +11,11 @@ import { formatDateTime } from "../utils/formatting";
  */
 export function createGroupModel(
     nameOrRaw, 
+    viewId,
     parentGroupId = null, 
+    groupRole = 'active',
+    sortDirection = 'asc',
+    position = generateKeyBetween(null, null),
     createdAt = new Date().toISOString(), 
     id = crypto.randomUUID()
 ) {
@@ -19,13 +24,21 @@ export function createGroupModel(
       ? {
           id: nameOrRaw.id ?? id,
           name: nameOrRaw.name,
-          parentGroupId: nameOrRaw.parentGroupId ?? parentGroupId,
-          createdAt: nameOrRaw.createdAt ?? createdAt,
+          viewId: nameOrRaw.viewId ?? viewId,
+          parentGroupId: nameOrRaw.parentGroupId ?? null,
+          groupRole: nameOrRaw.groupRole ?? groupRole,
+          sortDirection: nameOrRaw.sortDirection ?? 'asc',
+          position: nameOrRaw.position ?? null,
+          createdAt: nameOrRaw.createdAt ?? new Date().toISOString(),
         }
       : {
           id,
           name: nameOrRaw,
+          viewId,
           parentGroupId,
+          groupRole,
+          sortDirection,
+          position,
           createdAt,
         };
 

@@ -1,30 +1,25 @@
-import { useState, useMemo } from "react";
+import { useReducer, useState } from "react";
 import "./App.css";
 import { sortByPosition } from "./utils/ordering";
-import { initialGroups } from "./mocks/data/groups";
-import { initialTasks } from "./mocks/data/tasks";
-import { initialPlacements } from "./mocks/data/placements";
 import { TaskForm } from "./components/TaskForm/TaskForm";
 import { TaskControls } from "./components/TaskControls/TaskControls";
 import { TaskList } from "./components/TaskList/TaskList";
 import { getGroupTaskItems } from "./selectors/groupTasks";
-import { DragDropProvider } from '@dnd-kit/react';
+import { boardReducer, initialBoardState } from "./reducers/boardReducer";
+import { mockBoardState } from "./mocks/index";
+import { DragDropProvider } from "@dnd-kit/react";
+import { isSortable } from "@dnd-kit/react/sortable";
 
 function App() {
-  const [tasks, setTasks] = useState(initialTasks);
-  const [placements, setPlacements] = useState(initialPlacements);
+  const [state, dispatch] = useReducer(boardReducer, mockBoardState);
+
+  const activeGroups = sortByPosition(
+    state.groups.filter(
+      (group) => group.viewId === "view-todo" && group.parentGroupId === null,
+    ),
+  );
 
   const [showCompleted, setShowCompleted] = useState(true);
-
-  const todoItems = useMemo(
-    () => getGroupTaskItems(tasks, placements, "group-todo"),
-    [tasks, placements],
-  );
-
-  const completedItems = useMemo(
-    () => getGroupTaskItems(tasks, placements, "group-completed"),
-    [tasks, placements],
-  );
 
   const handleReorder = (id, fromIndex, toIndex) => {
     if (fromIndex === toIndex) return;
@@ -42,6 +37,15 @@ function App() {
     setTasks(updated);
   };
 
+  console.log(
+    "groups:",
+    activeGroups,
+    "placements:",
+    state.placements,
+    "tasks:",
+    state.tasks,
+  );
+
   return (
     <main>
       <h2>To-Do List</h2>
@@ -51,8 +55,20 @@ function App() {
         setShowCompleted={setShowCompleted}
         // sortTasks={sortByPosition}
       />
-      <TaskList title="To-Do" tasks={todoItems} />
-      <TaskList title="Completed" tasks={completedItems} />
+
+      <DragDropProvider>
+        {activeGroups.map((group) => {
+          const items = getGroupTaskItems(
+            state.tasks,
+            state.placements,
+            group.id,
+            null,
+            group.sortDirection,
+          );
+
+          return <TaskList key={group.id} group={group} tasks={items} />;
+        })}
+      </DragDropProvider>
     </main>
   );
 }

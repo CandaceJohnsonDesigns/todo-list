@@ -25,8 +25,8 @@ export function createPlacementModel(
         groupId: groupIdOrRaw.groupId,
         taskId: groupIdOrRaw.taskId ?? taskId,
         parentPlacementId: groupIdOrRaw.parentPlacementId ?? null,
-        position: groupIdOrRaw.position ?? position,
-        createdAt: groupIdOrRaw.createdAt ?? createdAt
+        position: groupIdOrRaw.position ?? null,
+        createdAt: groupIdOrRaw.createdAt ?? new Date().toISOString()
     } :
     {
         id,

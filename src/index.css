@@ -7,6 +7,8 @@
   --priority-text: #fff;
 
   --primary: #2563EB;
+  --gray: color-mix(in oklab, var(--bg) 95%, black);
+  --light-gray: color-mix(in oklab, var(--bg) 98%, black);
   
   --delete: #DC2626;
   --delete-text: #fff;
